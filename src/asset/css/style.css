@@ -4,17 +4,16 @@
 }
 
 body {
-  background: #C5DDEB;
   font: 14px/20px "Lato", Arial, sans-serif;
-  padding: 40px 0;
   color: white;
 }
 
 .container {
   margin: 0 auto;
   width: 100%;
+  height: 100vh !important;
   background: #444753;
-  border-radius: 5px;
+  padding: 0px;
 }
 
 .people-list {
@@ -22,14 +21,18 @@ body {
   float: left;
 }
 .people-list .search {
-  padding: 20px;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
 }
 .people-list input {
   border-radius: 3px;
   border: none;
-  padding: 14px;
-  color: white;
-  background: #6A6C75;
+  padding: 8px 15px;
+  color: white !important;
+  background: #898c9a;
   width: 90%;
   font-size: 14px;
 }
@@ -38,17 +41,22 @@ body {
   left: -25px;
 }
 .people-list ul {
-  padding: 20px;
-  height: 770px;
+  padding: 5px 10px;
+  height: 75vh !important;
+  overflow: auto;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 .people-list ul li {
   padding-bottom: 20px;
+  display: flex;
 }
 .people-list img {
   float: left;
 }
 .people-list .about {
   float: left;
+  width: 100%;
   margin-top: 8px;
 }
 .people-list .about {
@@ -383,25 +391,17 @@ body, html {
     width : 100px;
 }
 .infor{
-  margin :20px 20px 20px 20px;
+  margin: 12px 10px 5px 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
-.dropdown2{
-  margin-bottom: -65px;
-}
-.dropdown-toggle2{
-  margin-left: 20px;
-  margin-top : 15px;
-}
-.dropdown-menu2{
-  margin-left :165px;
-}
+
 .chann{
-  margin-bottom: 40px;
+  margin-bottom: 10px;
+  font-weight: bold;
 }
-.Channel{
-  margin-top : 100px ;
-  margin-left: -110px ;
-}
+
 .Hover:hover{
   cursor: pointer;
   opacity : 1;
@@ -468,10 +468,67 @@ input[type="checkbox"]:disabled + .label-text:before{
   height: 100px;
 }
 
+
+/* CUA THANG */
+
+.box_tmt{
+  width: auto;
+  height: auto !important;
+}
+
+.alignCenterHeight_tmt{
+  align-items: center;
+  display: flex;
+}
+
+.iconbar_tmt{
+  padding: 10px 25px;
+}
+
+.iconbar_tmt a{
+  font-size: 16px !important;
+}
+
+.borderBottom_tmt{
+  border-bottom: 1px solid #fff;
+}
+
+.iconSize_tmt{
+  font-size: 16px !important;
+  color: #fff;
+}
+
+.sort_tmt{
+  color: #333 !important;
+}
+
+.colorText_tmt li{
+  color: #0f0f0f !important;
+}
+
+.cursor_tmt{
+  cursor: pointer;
+}
 /*Responsive*/
 @media all and (max-width: 600px){
   .Channel{
     margin-top : 140px ;
     margin-left: -90px ;
   }
+}
+
+::-webkit-input-placeholder {
+   color: #dadada;
+}
+ 
+:-moz-placeholder { /* Firefox 18- */
+   color: #dadada;  
+}
+ 
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #dadada;  
+}
+ 
+:-ms-input-placeholder {  
+   color: #dadada;  
 }

@@ -12,34 +12,34 @@ class cpmBoxInfo extends React.Component {
         this.getProp();
         this.state = {
             open: false,
-            selected:[],
-            channelName:''
+            selected: [],
+            channelName: ''
         };
     }
 
-    logout=()=> {
+    logout = () => {
         api.logout();
     }
 
-    getProp=()=> {
+    getProp = () => {
         console.log("thangse 2", this.props.infor);
     }
 
     handleClickOpen = () => {
-        this.setState({ open: true });
+        this.setState({ open: true })
     };
 
     handleClose = () => {
         this.setState({ open: false });
     };
 
-    getSelectedUser = (selected) =>{
-        this.setState({selected: selected})
+    getSelectedUser = (selected) => {
+        this.setState({ selected: selected })
     }
 
-    getChannelName = (event) =>{
+    getChannelName = (event) => {
         console.log("tttttttttttttttttttttttt");
-        this.setState({channelName: event.target.value})
+        this.setState({ channelName: event.target.value })
     }
 
     createChannel = () => {
@@ -67,10 +67,10 @@ class cpmBoxInfo extends React.Component {
                         <div className="modal-body">
                             <div className="form-group" >
                                 <label >Group's Name</label>
-                                <input type="text" onChange={this.getChannelName} className="form-control" id="namegroup"/>
+                                <input type="text" onChange={this.getChannelName} className="form-control" id="namegroup" />
                             </div>
                         </div>
-                        <TableUser listUser={this.state.listUser} getSelectedUser={this.getSelectedUser}/>
+                        <TableUser listUser={this.state.listUser} getSelectedUser={this.getSelectedUser} />
                         <div className="modal-footer">
                             <button type="button" className="btn btn-success" data-dismiss="modal" onClick={this.handleClose}>Close</button>
                             <button type="button" className="btn btn-danger" data-dismiss="modal" onClick={this.createChannel}>Create</button>
@@ -90,7 +90,7 @@ class cpmBoxInfo extends React.Component {
                     value: (
                         <React.Fragment>
                             <div className="status">
-                                <i className={"fa fa-circle "+ status}/> {status}
+                                <i className={"fa fa-circle " + status} /> {status}
                             </div>
                         </React.Fragment>
                     ),
@@ -102,28 +102,29 @@ class cpmBoxInfo extends React.Component {
 
         return (
             <div>
-                <p className="information">INFORMATION</p>
                 <div className="infor">
                     <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_03.jpg" alt="avatar" />
                     <div className="about">
                         <div className="name">{this.props.infor.name}</div>
                         <div className="status">
-                            <i className={"fa fa-circle " + this.props.infor.status}/>{this.props.infor.status}
+                            <i className={"fa fa-circle " + this.props.infor.status} />
+                            {this.props.infor.status}
                         </div>
                     </div>
+                    <DropDownMenu
+                        items={[
+                            ...statusItems,
+                            { value: "PROFILE" },
+                            { value: "MY ACCOUNT" },
+                            { value: "LOGOUT", onClick: this.logout }
+                        ]}
+                    />
                 </div>
-                <DropDownMenu
-                    // component={IconButton}
-                    // header={<ArrowDropDown color="error" />}
-                    items={[
-                        ...statusItems,
-                        { value: "PROFILE" },
-                        { value: "MY ACCOUNT" },
-                        { value: "LOGOUT", onClick: this.logout }
-                    ]}
-                />
-                <a href="#" className="btn btn-primary Channel" data-toggle="modal" data-target="#myModal" onClick={this.handleClickOpen}><span className="glyphicon glyphicon-plus"></span>CHANNEL</a>
-                {this.createGroup()}
+                <div className="box_tmt iconbar_tmt">
+                    <a href="#" data-toggle="modal" data-target="#myModal" onClick={this.handleClickOpen}>
+                        <span className="glyphicon glyphicon-plus"></span></a>
+                    {this.createGroup()}
+                </div>
             </div>
         );
     }
